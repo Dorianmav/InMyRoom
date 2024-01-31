@@ -1,0 +1,59 @@
+<div *ngIf="currentState == ''" class="container">
+
+    <div class="my-5">
+
+        <div class="flex justify-center mb-4">
+            <button (click)="stateCreate()"
+                class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                <span
+                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    Créer un manga
+                </span>
+            </button>
+        </div>
+
+        <div class="relative">
+            <div class="absolute inset-y-0 start-3 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
+            </div>
+            <input type="search" id="default-search"
+                class="block w-full mx-3 p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Rechercher un manga..." (input)="applyFilter()" [(ngModel)]="filterText" required>
+            <!-- <button type="submit"
+                class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button> -->
+        </div>
+
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-5 ml-5 mb-5">
+
+        <div class="card text-center border rounded-lg shadow-[0_4px_8px_0_rgba(0,0,0,0.2)] max-w-[calc(33.33%_-_20px)]"
+            *ngFor="let manga of filteredList">
+            <h1>{{manga.title | titlecase}}</h1>
+            <img src="{{manga.imageUrl}}" alt="{{manga.title}}.image" class="max-h-80">
+
+            <div class="flex">
+                <button
+                    class="rounded-bl-lg text-white bg-black text-center cursor-pointer w-full text-lg p-3 border-none hover:opacity-70"
+                    (click)="showDetails(manga.id)">Détails</button>
+                <button
+                    class="rounded-br-lg text-white bg-black text-center cursor-pointer w-full text-lg p-3 border-none hover:opacity-70"
+                    (click)="deleteManga(manga.id)">Supprimer</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-manga-create *ngIf="currentState == 'create'" (stateChanged)="currentState = $event"
+    (newMangaEmitter)="addManga($event)"></app-manga-create>
+<app-manga-view *ngIf="currentState == 'solo_view'" [manga]="selectedManga"
+    (stateChanged)="currentState = $event"></app-manga-view>
+<app-manga-update *ngIf="currentState == 'update'" [manga]="selectedManga"
+    (stateChanged)="currentState = $event"></app-manga-update>

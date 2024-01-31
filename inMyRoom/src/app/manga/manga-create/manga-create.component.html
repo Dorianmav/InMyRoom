@@ -1,0 +1,35 @@
+<div class="flex justify-center my-4">
+
+    <button (click)="changeStateToEmpty()"
+        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+        <span
+            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            Voir la liste
+        </span>
+    </button>
+
+</div>
+<form class="bg-[linear-gradient(to_top,#fad0c4_0%,#ffd1ff_100%)] m-7 p-2 rounded-md" [formGroup]="formGroup">
+
+    <label for="mtitle" class="m-3 p-3 font-bold text-lg">Titre:</label>
+    <input type="text" id="mtitle" formControlName="title" class="w-full p-3 mb-3 border border-solid rounded box-border">
+
+    <label for="mresume" class="m-3 p-3 font-bold text-lg">Résumé:</label>
+    <input type="text" id="mresume" formControlName="resume" class="w-full p-3 mb-3 border border-solid rounded box-border">
+
+    <label for="mauthor" class="m-3 p-3 font-bold text-lg">Auteur:</label>
+    <input type="text" id="mauthor" formControlName="author" class="w-full p-3 mb-3 border border-solid rounded box-border">
+
+    <!-- <label for="mtomes">Tomes:</label>
+    <input type="number" id="mtomes" formControlName="tomes" min="0"> -->
+
+    <label for="mcollection" class="m-3 p-3 font-bold text-lg">Collection:</label>
+    <input type="text" id="mcollection" formControlName="collection" class="w-full p-3 border border-solid rounded box-border">
+    <p id="mcollection-explanation" class="mt-1 mb-3 ml-3 text-sm text-gray-500 dark:text-gray-400">Mettre une virgule entre chaque numero</p>
+
+
+    <label for="mimgage" class="m-3 p-3 font-bold text-lg">URL de l'image:</label>
+    <input type="text" id="mimgage" formControlName="imageUrl" class="w-full p-3 mb-3 border border-solid rounded box-border">
+
+    <button type="button" class="w-full bg-green-600 text-white p-5 px-20 my-8 border-none rounded-md cursor-pointer hover:bg-green-700" [disabled]="!formGroup.valid" (click)="create()">Créer</button>
+</form>

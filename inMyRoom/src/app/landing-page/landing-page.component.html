@@ -1,0 +1,58 @@
+<div class="container">
+
+    <div class="flex flex-wrap justify-between gap-5 ml-5 mt-5">
+
+        <div class="card rounded-xl border text-center shadow-[0_4px_8px_0_rgba(0,0,0,0.2)] max-w-[calc(33.33%_-_20px)]">
+
+            <p-carousel *ngIf="lastThreeMangas.length > 0" [value]="lastThreeMangas" [numVisible]="1" [numScroll]="1"
+                [circular]="true" [autoplayInterval]="3000" [showNavigators]="false" title="Voir les mangas" (click)="goToManga()">
+                <ng-template let-manga pTemplate="header">
+                    <h3 class="text-center font-bold mb-5 mt-5 text-4xl">Mes derniers mangas</h3>
+                </ng-template>
+                <ng-template let-manga pTemplate="item" class="items-center">
+                    <div>
+                        <h1>{{manga.title | titlecase}}</h1>
+                        <img src="{{manga.imageUrl}}" alt="{{manga.title}}.image">
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+        </div>
+
+        <div class="card rounded-xl border text-center shadow-[0_4px_8px_0_rgba(0,0,0,0.2)] max-w-[calc(33.33%_-_20px)]">
+
+            <p-carousel *ngIf="lastThreeJeux.length > 0" [value]="lastThreeJeux" [numVisible]="1" [numScroll]="1"
+                [circular]="true" [autoplayInterval]="3000" [showNavigators]="false" title="Voir les jeux" (click)="goToGames()">
+                <ng-template let-jeu pTemplate="header">
+                    <h3 class="text-center font-bold mb-5 mt-5 text-4xl">Mes derniers jeux</h3>
+                </ng-template>
+                <ng-template let-jeu pTemplate="item" class="items-center">
+                    <div>   
+                        <h1>{{jeu.title | titlecase}}</h1>
+                        <img src="{{jeu.imageUrl}}" alt="{{jeu.title}}.image">
+                    </div>
+                </ng-template>
+            </p-carousel>
+
+        </div>
+
+        <!-- <div class="card rounded-xl border text-center shadow-[0_4px_8px_0_rgba(0,0,0,0.2)] max-w-[calc(33.33%_-_20px)]">
+        
+            <p-carousel *ngIf="lastThreeMangas.length > 0" [value]="lastThreeMangas" [numVisible]="1" [numScroll]="1"
+                [circular]="true" [autoplayInterval]="3000" [showNavigators]="false" title="Voir les animes" (click)="goToAnime()">
+                <ng-template let-manga pTemplate="header">
+                    <h3 class="text-center font-bold mb-5 mt-5 text-4xl">Mes derniers animes</h3>
+                </ng-template>
+                <ng-template let-manga pTemplate="item" class="items-center">
+                    <div>
+                        <h1>{{manga.title | titlecase}}</h1>
+                        <img src="{{manga.imageUrl}}" alt="{{manga.title}}.image">
+                    </div>
+                </ng-template>
+            </p-carousel>
+        
+        </div> -->
+
+    </div>
+
+</div>

@@ -1,0 +1,34 @@
+[
+    {
+        "id": -3,
+        "title": "dragon ball",
+        "resume": "dragon ball",
+        "author": "moi",
+        "collection": ["1","2","3"],
+        "imageUrl": "https://www.glenat.com/sites/default/files/images/livres/couv/9782723434621-001-T.jpeg"
+    },
+    {
+        "id": -2,
+        "title": "GTO",
+        "resume": "GTO",
+        "author": "moi",
+        "collection": [
+            "1",
+            "3",
+            "10"
+        ],
+        "imageUrl": "https://m.media-amazon.com/images/I/81VDeAyH1GL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+        "id": -1,
+        "title": "City hunter",
+        "resume": "manga qui me sert a tester",
+        "author": "moi",
+        "collection": [
+            "1",
+            "2",
+            "6"
+        ],
+        "imageUrl": "https://m.media-amazon.com/images/I/71p6WEzAMAL._AC_UF894,1000_QL80_.jpg"
+    },
+]

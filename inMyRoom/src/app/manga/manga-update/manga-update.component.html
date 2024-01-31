@@ -1,0 +1,30 @@
+<form class="m-30 bg-gray-300 p-10" [formGroup]="mangaForm">
+
+    <label class="mt-10 pl-10 text-lg font-bold" for="mtitle">Titre:</label>
+    <input class="w-full p-10 my-8 mx-1 inline-block border border-gray-300 rounded-md box-border" type="text"
+        id="mtitle" formControlName="title">
+
+    <label class="mt-10 pl-10 text-lg font-bold" for="mresume">Résumé:</label>
+    <input class="w-full p-10 my-8 mx-1 inline-block border border-gray-300 rounded-md box-border" type="text"
+        id="mresume" formControlName="resume">
+
+    <label class="mt-10 pl-10 text-lg font-bold" for="mauthor">Auteur:</label>
+    <input class="w-full p-10 my-8 mx-1 inline-block border border-gray-300 rounded-md box-border" type="text"
+        id="mauthor" formControlName="author">
+
+    <!-- <label class="mt-10 pl-10 text-lg font-bold" for="mtomes">Tomes:</label>
+    <input class="w-full p-10 my-8 mx-1 inline-block border border-gray-300 rounded-md box-border" type="number"
+        id="mtomes" formControlName="tomes" min="0"> -->
+
+    <label class="mt-10 pl-10 text-lg font-bold" for="mcollection"> Collection:</label>
+    <input class=" w-full p-10 my-8 mx-1 inline-block border border-gray-300 rounded-md box-border" type="text"
+        id="mcollection" formControlName="collection">
+
+    <label class="mt-10 pl-10 text-lg font-bold" for="mimgage">URL de l'image:</label>
+    <input class="w-full p-10 my-8 mx-1 inline-block border border-gray-300 rounded-md box-border" type="text"
+        id="mimgage" formControlName="imageUrl">
+
+    <button
+        class="w-full bg-green-600 text-white p-14 px-20 my-8 mb-0 border-none rounded-md cursor-pointer hover:bg-green-700"
+        type="button" [disabled]="!mangaForm.valid" (click)="update()">Modifier</button>
+</form>
