@@ -1,0 +1,5 @@
+# Ignore les fichiers temporaires créés par l'IDE
+.idea/
+
+# Ignore le répertoire node_modules
+node_modules/
